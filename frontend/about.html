@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us </title>
+
+  <script src="script.js"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fa;
+      color: #333;
+    }
+
+    .about-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .about-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .about-header h1 {
+      font-size: 36px;
+      color: #1e1e2f;
+      margin-bottom: 10px;
+    }
+
+    .about-header p {
+      font-size: 18px;
+      color: #666;
+    }
+
+    .about-section {
+      margin-bottom: 30px;
+    }
+
+    .about-section h2,
+    .about-section h3 {
+      color: #2d9cdb;
+      margin-top: 30px;
+      font-size: 24px;
+    }
+
+    .about-section p {
+      line-height: 1.7;
+      font-size: 17px;
+      color: #444;
+    }
+
+    .about-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .about-section li {
+      margin: 10px 0;
+      padding-left: 25px;
+      position: relative;
+      font-size: 16px;
+    }
+
+    .about-section li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+      color: #27ae60;
+    }
+
+    blockquote {
+      font-style: italic;
+      background: #eafbf0;
+      padding: 15px 20px;
+      border-left: 4px solid #27ae60;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+
+    blockquote footer {
+      font-size: 14px;
+      color: #555;
+      margin-top: 8px;
+    }
+
+    .contact-form {
+      background: #f1f6fc;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .contact-form h3 {
+      margin-bottom: 20px;
+      color: #1e1e2f;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .contact-form button {
+      background-color: #2d9cdb;
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #007bb5;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      background-color: #e3e8f0;
+      margin-top: 50px;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .about-header h1 {
+        font-size: 28px;
+      }
+
+      .about-section h2 {
+        font-size: 22px;
+      }
+
+      .contact-form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.png.png" alt="NearbyFix Logo">
+      <h2><span class="Nearby"> Nearby</span><span class="Fix">Fix</span></h2>
+
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      ☰
+    </div>
+    <nav id="navLinks" class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="signupuser-service.html">Signup</a>
+      <a href="loginuser-service.html">Login</a>
+      <a href="user-profile.html" id="profileLink" style="display: none;">👤 My Profile</a>
+      <a href="#" onclick="logout()" id="logoutLink" style="display: none;">🚪 Logout</a>
+    </nav>
+  </header>
+
+
+
+  <div class="about-container">
+    <div class="about-header">
+      <h1>About Us</h1>
+      <p>Your Trusted Local Service Platform</p>
+    </div>
+
+    <div class="about-section">
+      <p><strong>NearbyFix</strong> is your one-stop destination to book trusted local service providers like plumbers,
+        electricians, carpenters, tutors, and appliance repair experts. We bring convenience and trust right to your
+        doorstep.</p>
+
+      <h3>💡 Our Mission</h3>
+      <p>To make local service discovery and booking effortless, secure, and reliable for everyone—while empowering
+        verified professionals.</p>
+
+      <h3>🌟 Why Choose Us?</h3>
+      <ul>
+        <li>Instant booking by service & pincode</li>
+        <li>Instant booking confirmation via email</li>
+        <li>Support for verified local service providers</li>
+        <li>Direct contact with providers after booking</li>
+      </ul>
+
+      <h3>🙋‍♂️ Meet the Founder</h3>
+      <p><strong>Oman Saakib</strong> created NearbyFix with a vision to bridge the gap between users and service
+        professionals using clean, smart technology.</p>
+
+      <blockquote>
+        "I started NearbyFix to make it easier for people to connect with local professionals they can trust."
+        <footer>— Oman Saakib, Founder</footer>
+      </blockquote>
+
+      <h3>🌍 Our Vision</h3>
+      <p>To become India’s most trusted platform for local services by ensuring quality, transparency, and reliability
+        in every booking.</p>
+    </div>
+
+    <section id="contact" class="contact">
+      <h2 data-aos="fade-right">Contact Us</h2>
+      <form id="contactForm" data-aos="fade-up">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </div>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/oman_king07" target="_blank" title="Instagram">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" class="social-icon">
+    </a>
+    <a href="https://www.linkedin.com/in/oman-saakib-7404b0255" target="_blank" title="LinkedIn">
+      <img
+        src="https://www.citypng.com/public/uploads/preview/hd-vector-flat-linkedin-in-round-icon-png-701751695046390m4phkuuiqm.png"
+        alt="LinkedIn" class="social-icon">
+    </a>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 NearbyFix. All rights reserved. | Designed by Oman Saakib
+  </div>
+
+</body>
+
+</html>

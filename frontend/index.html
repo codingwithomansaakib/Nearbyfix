@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Fix nearu</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="logo.png.png" alt="Fix Nearu Logo">
+      <h2><span class="Nearby"> Nearby</span><span class="Fix">Fix</span></h2>
+
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      ☰
+    </div>
+    <nav id="navLinks" class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="signupuser-service.html">Signup</a>
+      <a href="loginuser-service.html">Login</a>
+      <a href="user-profile.html" id="profileLink" style="display: none;">👤 My Profile</a>
+      <a href="#" onclick="logout()" id="logoutLink" style="display: none;">🚪 Logout</a>
+    </nav>
+  </header>
+
+
+ 
+
+  <!-- Hero Slider Section -->
+  <section class="slider-hero">
+    <div class="slider-container">
+      <div class="slide active">
+        <img src="https://ik.imagekit.io/ionicfirebaseapp/getwidget/2023/11/Home-Services-Apps.jpg" alt="Hero Banner">
+        <div class="caption">
+          <h2>Find Local Services Easily</h2>
+          <p>Plumbers, Tutors, Electricians & more at your fingertips.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img
+          src="https://media.istockphoto.com/id/183953925/photo/young-plumber-fixing-a-sink-in-bathroom.jpg?s=612x612&w=0&k=20&c=Ps2U_U4_Z60mIZsuem-BoaHLlCjsT8wYWiXNWR-TCDA="
+          alt="Plumber">
+        <div class="caption">
+          <h1>Plumber</h1>
+          <p>Our plumbers provide fast, reliable, and professional plumbing services in your area. Whether
+            it's fixing leaking pipes, installing water heaters, unclogging drains, or renovating your kitchen and
+            bathroom fittings—we've got you covered. All service providers are background-verified and experienced to
+            ensure safety and quality. Book a plumber near you with just a few clicks and enjoy hassle-free home
+            maintenance.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img
+          src="https://mkshometuition.com/wp-content/uploads/2022/04/tutor-with-litthe-girl-studying-home-1-scaled.jpg"
+          alt="Tutor">
+        <div class="caption">
+          <h1>Home Tutoring</h1>
+          <p>Need help with academics? Our trusted Home Tutors offer one-on-one guidance tailored to your child's needs.
+            From Math, Science, and English to competitive exam prep, our qualified tutors provide customized lessons to
+            boost understanding, performance, and confidence. Book trusted and verified tutors near you for regular,
+            weekly, or crash courses—all from the comfort and safety of your home.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://wallpapers.com/images/hd/electrician-checking-voltmeter-zpluh1tf2du87juu.jpg" alt="Tutor">
+        <div class="caption">
+          <h1>Electrician</h1>
+          <p>Need help with wiring, switches, or installing appliances? Our expert Electricians are trained to handle
+            everything—from fixing minor power issues to major electrical installations. Whether it's a fan, light,
+            MCB, inverter, geyser, or full house wiring—our certified professionals ensure 100% safety, quality, and
+            on-time service at your location.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="https://c1.wallpaperflare.com/preview/383/103/688/tools-carpenter-wood.jpg" alt="Carpenter">
+        <div class="caption">
+          <h1>Carpenter</h1>
+          <p>Our experienced Carpenters deliver expert craftsmanship for your furniture and woodwork needs. From fixing
+            doors, windows, and cabinets to designing modular kitchens, wardrobes, and custom shelves—our service
+            guarantees precision, durability, and timely delivery. Whether it's small repairs or full furniture
+            assembly, we have got you covered.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/028/433/825/non_2x/construction-under-building-with-mason-plastering-concrete-to-brick-wall-generative-ai-photo.jpeg"
+          alt="Mason">
+        <div class="caption">
+          <h1>Mason(construction)</h1>
+          <p>Our skilled Masons specialize in a wide range of construction and renovation tasks including bricklaying,
+            plastering, tiling, concrete work, and structural repairs. Whether you're building a new home, remodeling a
+            room, or repairing walls, our verified professionals ensure durability, accuracy, and on-time project
+            completion with high-grade materials.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="https://onesourcehomeservice.com/wp-content/uploads/2023/05/AC_Repair_Cost_279259535-1.webp"
+          alt="Ac repair">
+        <div class="caption">
+          <h1>Ac repair</h1>
+          <p>Stay cool and worry-free with our expert AC and refrigerator repair services. Our trained technicians
+            provide on-site support for all types of air conditioners (split, window, inverter) and fridges (single
+            door, double door, side-by-side). We ensure accurate diagnosis, quick repair, gas refilling, and preventive
+            maintenance with genuine spare parts.</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="https://laundryrepairguy.com.au/wp-content/uploads/2016/03/Washing-Machine-Repair-Perth-2-768x720.jpg"
+          alt="Washine Machine Repair">
+        <div class="caption">
+          <h1>Washine Machine Repair</h1>
+          <p>Get your washing machine repaired hassle-free by skilled and verified professionals. We provide on-site
+            diagnosis and repair for fully automatic, semi-automatic, front-load, and top-load machines. Whether it's a
+            drainage issue, motor fault, spin problem, or panel malfunction — we’ve got you covered with fast service
+            and genuine spare parts.</p>
+        </div>
+      </div>
+
+    </div>
+    </div>
+    <div class="slider-nav">
+      <button id="prevBtn">⟨</button>
+      <button id="nextBtn">⟩</button>
+    </div>
+  </section>
+
+  <!-- Search Form -->
+  <div class="form-background" data-aos="fade-down">
+    <section class="search-by-pincode">
+      <h2>Find a Service by Pincode</h2>
+      <form id="searchForm">
+        <div>
+          <label for="service">Select Service:</label>
+          <select id="service" required>
+            <option value="">-- Select Service --</option>
+            <option value="Plumber">Plumber</option>
+            <option value="Electrician">Electrician</option>
+            <option value="Carpenter">Carpenter</option>
+            <option value="Tutor">Home Tutor</option>
+            <option value="Mason (construction/renovation)">Mason (construction/renovation)</option>
+            <option value="AC Repair / Fridge Repair">AC / Fridge Repair</option>
+            <option value="Washing Machine Repair">Washing Machine Repair</option>
+          </select>
+        </div>
+        <div>
+          <label for="pincode">Enter Pincode:</label>
+          <input type="text" id="pincode" placeholder="e.g., 110001" required>
+        </div>
+        <button type="submit">Search</button>
+      </form>
+      <div id="results"></div>
+    </section>
+  </div>
+
+
+
+  <!-- Services -->
+  <section id="services" class="services">
+    <h2 data-aos="fade-up">Our Services</h2>
+    <div class="cards">
+
+      <div class="card" data-aos="zoom-in">
+        <img src="plumber.jpg" alt="Plumber">
+        <h3>Plumber</h3>
+        <p>Fix leaks, install fixtures and more.</p>
+      </div>
+
+      <div class="card" data-aos="zoom-in" data-aos-delay="100">
+        <img src="carpenter.jpg" alt="Carpenter">
+        <h3>Carpenter</h3>
+        <p>Certified experts for home or office needs.</p>
+      </div>
+
+      <div class="card" data-aos="zoom-in" data-aos-delay="200">
+        <img src="home tuter.jpg" alt="Home Tutor">
+        <h3>Home Tutor</h3>
+        <p>Private tutors for home.</p>
+      </div>
+
+      <div class="card" data-aos="zoom-in" data-aos-delay="300">
+        <img src="https://wallpapers.com/images/hd/electrician-checking-voltmeter-zpluh1tf2du87juu.jpg"
+          alt="Electrician">
+        <h3>Electrician</h3>
+        <p>Certified electricians for home or office needs.</p>
+      </div>
+
+      <div class="card" data-aos="zoom-in" data-aos-delay="400">
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/028/433/825/non_2x/construction-under-building-with-mason-plastering-concrete-to-brick-wall-generative-ai-photo.jpeg"
+          alt="Mason">
+        <h3>Mason (Construction)</h3>
+        <p>Experts for construction, tiling, wall repair, and more.</p>
+      </div>
+
+      <div class="card" data-aos="zoom-in" data-aos-delay="500">
+        <img src="https://onesourcehomeservice.com/wp-content/uploads/2023/05/AC_Repair_Cost_279259535-1.webp"
+          alt="AC Repair / Fridge Repair">
+        <h3>AC / Fridge Repair</h3>
+        <p>Certified cooling technicians at your doorstep.</p>
+      </div>
+
+      <div class="card" data-aos="zoom-in" data-aos-delay="600">
+        <img src="https://laundryrepairguy.com.au/wp-content/uploads/2016/03/Washing-Machine-Repair-Perth-2-768x720.jpg"
+          alt="Washing Machine Repair">
+        <h3>Washing Machine Repair</h3>
+        <p>Quick repair for all types of washing machines.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2 data-aos="fade-right">Contact Us</h2>
+    <form id="contactForm" data-aos="fade-up">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Your existing 4 columns -->
+      <div class="footer-column">
+        <h4>Popular Services</h4>
+        <ul>
+          <li><a href="#">Plumber</a></li>
+          <li><a href="#">Electrician</a></li>
+          <li><a href="#">Carpenter</a></li>
+          <li><a href="#">Home Tutor</a></li>
+          <li><a href="#">Mason (Construction)</a></li>
+          <li><a href="#">AC / Fridge Repair</a></li>
+          <li><a href="#">Washing Machine Repair</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="signupuser-service.html">User Signup</a></li>
+          <li><a href="loginuser-service.html">User Login</a></li>
+          <li><a href="user-profile.html">My Profile</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">How it Works</a></li>
+          <li><a href="#">Booking Help</a></li>
+          <li><a href="#">Email Confirmation</a></li>
+          <li><a href="#">Service Provider Info</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About the Founder</a></li>
+          <li><a href="#">Mission & Vision</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press & Media</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 👇 Social Icons -->
+    <div class="footer-social">
+      <a href="https://www.instagram.com/oman_king07" target="_blank" title="Instagram">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" class="social-icon">
+      </a>
+      <a href="https://www.linkedin.com/in/oman-saakib-7404b0255" target="_blank" title="LinkedIn">
+        <img
+          src="https://www.citypng.com/public/uploads/preview/hd-vector-flat-linkedin-in-round-icon-png-701751695046390m4phkuuiqm.png"
+          alt="LinkedIn" class="social-icon">
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 NearbyFix. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
+
+  <!-- Form Logic & Profile -->
+  <script>
+    document.getElementById("searchForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const service = document.getElementById("service").value;
+      const pincode = document.getElementById("pincode").value.trim();
+
+      localStorage.setItem("search_service", service);
+      localStorage.setItem("search_pincode", pincode);
+
+      window.location.href = "searchresults.html";
+    });
+
+  
+
+    // Show profile/logout if user is logged in
+    const isLoggedIn = localStorage.getItem("userEmail");
+
+    if (isLoggedIn) {
+      // Show profile and logout links
+      const profileLink = document.getElementById("profileLink");
+      const logoutLink = document.getElementById("logoutLink");
+      if (profileLink) profileLink.style.display = "inline-block";
+      if (logoutLink) logoutLink.style.display = "inline-block";
+
+      // Hide login and signup links
+      const signup = document.querySelector('a[href="signupuser-service.html"]');
+      const login = document.querySelector('a[href="loginuser-service.html"]');
+      if (signup) signup.style.display = "none";
+      if (login) login.style.display = "none";
+    }
+
+    // Logout function
+   function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("show");
+  }
+
+  function logout() {
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userName");
+    location.reload();
+  }
+  </script>
+
+  <!-- Slider Logic -->
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) slide.classList.add("active");
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    document.getElementById("nextBtn").addEventListener("click", nextSlide);
+    document.getElementById("prevBtn").addEventListener("click", prevSlide);
+    setInterval(nextSlide, 6000);
+
+    /* contact form */
+
+    document.getElementById("contactForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const name = this.name.value;
+      const email = this.email.value;
+      const message = this.message.value;
+      const BASE_URL = 'http://localhost:3000';
+
+
+      try {
+        const res = await fetch(`${BASE_URL}/api/contact`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, message })
+        });
+
+        try {
+              data = await res.json();
+            } catch {
+              data = {}; // fallback if no JSON returned
+            }
+
+        const data = await res.json();
+        if (data.message) {
+          window.location.href = "contact-success.html";  // ✅ Redirect to success page
+        } else {
+          alert("Message sending failed.");
+        }
+      } catch (err) {
+        alert("Something went wrong. Try again later.");
+      }
+    });
+
+
+   
+
+
+
+  </script>
+
+</body>
+
+</html>
