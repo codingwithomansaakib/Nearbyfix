@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: nearbyfix-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGO_URI
+        value: mongodb+srv://omansaakib:4tuycj4qcSBNd7n8@cluster0.1sj46yv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - key: PORT
+        value: 3000
