@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f7fa;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1e2a78;
+      padding: 15px 25px;
+      color: #fff;
+    }
+
+    .navbar h2 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .logout-btn {
+      background-color: #ff4d4f;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .logout-btn:hover {
+      background-color: #d9363e;
+    }
+
+    /* Profile Container */
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    .profile-header {
+      font-size: 22px;
+      font-weight: 600;
+      color: #1e2a78;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .booking-card {
+      background-color: #f0f4ff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      border-left: 5px solid #1e2a78;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .booking-card p {
+      margin: 6px 0;
+      font-size: 15px;
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logout-btn {
+        margin-top: 10px;
+        width: 100%;
+      }
+
+      .profile-header {
+        font-size: 20px;
+      }
+
+      .booking-card p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar">
+    <h2>Welcome, <span id="userName">User</span></h2>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+
+  <div class="container">
+    <div class="profile-header">📋 Your Booking History</div>
+    <div id="bookingList"></div>
+  </div>
+
+  <script>
+    const userEmail = localStorage.getItem("userEmail");
+    const userName = localStorage.getItem("userName") || "User";
+    const BASE_URL = 'http://localhost:3000';
+    document.getElementById("userName").textContent = userName;
+
+    async function loadBookings() {
+      if (!userEmail) {
+        document.getElementById("bookingList").innerHTML = "<p>Please login to view your bookings.</p>";
+        return;
+      }
+
+      try {
+        const res = await fetch(`${BASE_URL}/api/bookings/${userEmail}`);
+        let data;
+        try {
+          data = await res.json();
+        } catch {
+          data = {}; // fallback if no JSON returned
+        }
+        
+
+        const container = document.getElementById("bookingList");
+
+        if (!Array.isArray(data) || data.length === 0) {
+          container.innerHTML = "<p>No bookings found.</p>";
+          return;
+        }
+
+        container.innerHTML = data.map(booking => `
+          <div class="booking-card">
+            <p><strong>Service:</strong> ${booking.service}</p>
+            <p><strong>Provider:</strong> ${booking.providerName}</p>
+            <p><strong>Phone:</strong> ${booking.providerPhone}</p>
+            <p><strong>Pincode:</strong> ${booking.pincode}</p>
+            <p><strong>Date:</strong> ${new Date(booking.createdAt).toLocaleString()}</p>
+          </div>
+        `).join("");
+      } catch (error) {
+        console.error("Error loading bookings:", error);
+        document.getElementById("bookingList").innerHTML = "<p>Error fetching booking data.</p>";
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("userEmail");
+      localStorage.removeItem("userName");
+      window.location.href = "index.html";
+    }
+
+    loadBookings();
+
+
+
+
+  </script>
+
+</body>
+
+</html>
